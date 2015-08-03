@@ -1,0 +1,17 @@
+{
+  "name": "ZilchCast",
+  "version": "0.0.1",
+  "homepage": "https://github.com/daveschumaker/2015-06-mvp",
+  "authors": [
+    "Dave Schumaker <daveschumaker@gmail.com>"
+  ],
+  "description": "A YouTube web app for viewing videos with zero views.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
