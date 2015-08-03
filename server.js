@@ -8,6 +8,7 @@
 
 // Import and require various modules
 var express = require('express');
+var videos = require('./server/controllers/getVideos.js');
 
 // Initialize Express
 var app = express();
@@ -16,11 +17,20 @@ var app = express();
 // TODO: Move this into its own module
 app.use(express.static(__dirname + '/public'));
 
+// Handle API requests
+app.get('/api/video/new', function(req,res) {
+ res.statusCode = 200;
+ var newVideo = videos.new();
+ console.log('New video requested: ', newVideo); 
+ res.send(newVideo);
+});
+
 // Figure out route handling later.
 // app.get('/', function(req,res) {
 //   console.log('BOOM!!!');w
 //   res.end();
 // });
+
 
 // Setup server and start listening.
 var port = 3002;

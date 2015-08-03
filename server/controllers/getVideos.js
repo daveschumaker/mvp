@@ -27,7 +27,7 @@ module.exports = {
     return video;  
   },
 
-  getVideo: function() {
-    return getRandom();
+  new: function() {
+    return this.getRandom();
   }
 }
