@@ -4,6 +4,7 @@
 
 angular.module('zilchcast', [
   'zilchcast.video',
+  'video.services',
   'ngRoute'
 ])
 
