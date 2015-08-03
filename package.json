@@ -1,0 +1,26 @@
+{
+  "name": "zilchcast",
+  "version": "0.0.1",
+  "description": "A YouTube web app for viewing videos with zero views.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daveschumaker/2015-06-mvp.git"
+  },
+  "keywords": [
+    "video",
+    "youtube"
+  ],
+  "author": "Dave Schumaker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daveschumaker/2015-06-mvp/issues"
+  },
+  "homepage": "https://github.com/daveschumaker/2015-06-mvp#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
