@@ -14,10 +14,13 @@ var app = express();
 
 // Route handling.
 // TODO: Move this into its own module
-app.get('/', function(req,res) {
-  console.log('BOOM!!!');
-  res.end();
-});
+app.use(express.static(__dirname + '/public'));
+
+// Figure out route handling later.
+// app.get('/', function(req,res) {
+//   console.log('BOOM!!!');
+//   res.end();
+// });
 
 // Setup server and start listening.
 var port = 3002;
