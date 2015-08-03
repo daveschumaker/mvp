@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Figure out route handling later.
 // app.get('/', function(req,res) {
-//   console.log('BOOM!!!');
+//   console.log('BOOM!!!');w
 //   res.end();
 // });
 
