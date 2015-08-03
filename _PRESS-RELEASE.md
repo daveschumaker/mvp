@@ -1,4 +1,4 @@
-# Project Name #
+# ZilchCast #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -16,29 +16,29 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+## About ##
+  > ZilchCast - A site for viewing videos with ZERO views!
 
-## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+## Who is it for? ##
+  > This product is for people who love to watch videos on the Internet and want to be the first to discover tomorrow's next popular meme.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Millions of people upload their videos to services like YouTube, hoping that someone will discover their talents, humor, or thirst for adventure. Sadly, many of these videos are never viewed. ZilchCast solves this problem by finding YouTube videls with zero views and displaying them to our users
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Help discover future viral videos and memes by being the first one on the internet to see various YouTube videos.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > We use YouTube's API to search for videos with no views and present them to our users in an easy to understand manner.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "I think this has the potential to change the way we discover and share cat videos on the internet," says Dave Schumaker, CEO, CTO, CFO, COO, and the first and only employee of ZilchCast.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > It's easy to get started! Just visit the page and you'll be presented with a random video from YouTube that has NEVER been viewed!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I couldn't believe there were so many amazing videos on the internet that have never been seen before!" says Vee-Dee O'Watcher, an early customer of ZilchCast.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > ZilchCast provides an amazing experience for discovering those lonely videos that have had no views. To get started, simply visit the site and you'll be presented with a random YouTube video. Visit today and start giving some love to those lonely videos!
