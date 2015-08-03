@@ -2,8 +2,12 @@
  * Controller for our video view.
  */
 
-angular.module('ZilchCast.video', [])
+angular.module('zilchcast.video', [])
 
-.controller('myZilchController', function($scope) {
-  console.log('HELLO?');
+.controller('myVideoController', function($scope) {
+  $scope.test = function() {
+    console.log('HELLO?');
+  }
+
+  $scope.test();
 });

@@ -2,8 +2,8 @@
  * Initialize and setup our AngularJS App
  */
 
-angular.module('ZilchCast', [
-  'ZilchCast.video',
+angular.module('zilchcast', [
+  'zilchcast.video',
   'ngRoute'
 ])
 
@@ -11,7 +11,7 @@ angular.module('ZilchCast', [
   $routeProvider
     .when('/', {
       templateUrl: 'app/views/video.html',
-      controller: 'myZilchController',
+      controller: 'myVideoController'
     })
     .otherwise({
       redirectTo: '/'
