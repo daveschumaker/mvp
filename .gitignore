@@ -1,4 +1,5 @@
 ### node etc ###
+api-config.js
 node_modules/
 public/lib/
 

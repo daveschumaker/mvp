@@ -9,6 +9,7 @@
 // Import and require various modules
 var express = require('express');
 var videos = require('./server/controllers/getVideos.js');
+var YTapi = require('./server/api-config.js');
 
 // Initialize Express
 var app = express();
