@@ -20,6 +20,50 @@ var videoObj = [
   { url: 'https://www.youtube.com/embed/yD3yVwC0fjg' },
 ];
 
+// Push videos here so we can check it we've already added them.
+var videoArray = [
+  'tLt5rBfNucc',
+  'oVXZTmi2ruI',
+  'jcgWHD-Leps',
+  'rGy6tu6716w',
+  'KmuVO4UObwA',
+  'OjdQa-yc0QM',
+  'x69X482ujLY',
+  '8YrAILSxbq0',
+  'yD3yVwC0fjg'
+];
+
+var videoObj2 = {
+  'tLt5rBfNucc' : {
+    url: 'https://www.youtube.com/embed/tLt5rBfNucc'
+  },
+  'oVXZTmi2ruI' : {
+    url: 'https://www.youtube.com/embed/oVXZTmi2ruI'
+  },
+  'jcgWHD-Leps' : {
+    url: 'https://www.youtube.com/embed/jcgWHD-Leps'
+  },
+  'rGy6tu6716w' : {
+    url: 'https://www.youtube.com/embed/rGy6tu6716w'
+  },
+  'KmuVO4UObwA' : {
+    url: 'https://www.youtube.com/embed/KmuVO4UObwA'
+  },
+  'OjdQa-yc0QM' : {
+    url: 'https://www.youtube.com/embed/OjdQa-yc0QM'
+  },
+  'x69X482ujLY' : {
+    url: 'https://www.youtube.com/embed/x69X482ujLY'
+  },
+  '8YrAILSxbq0' : {
+    url: 'https://www.youtube.com/embed/8YrAILSxbq0'
+  },
+  'yD3yVwC0fjg' : {
+    url: 'https://www.youtube.com/embed/yD3yVwC0fjg'
+  }
+};
+
+
 // Template for adding some fake data for now.
 // { url: 'xxx' },
 // 
@@ -38,10 +82,11 @@ request("https://www.googleapis.com/youtube/v3/search?part=snippet&key=" + apiKe
     var embedID = 'https://www.youtube.com/embed/' + videoID;
     videoObj.push({url: embedID});
     console.log('Adding... ', embedID);
+    console.log(item.snippet);
   });
 
-  console.log(data);
-  console.log(data.items[0].id.videoId)
+  // console.log(data);
+  // console.log(data.items[0].id.videoId)
   // console.log('VIDEO ID: ', JSON.parse(body.items.videoId))
 });
 
