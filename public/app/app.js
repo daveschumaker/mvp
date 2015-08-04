@@ -27,6 +27,10 @@ angular.module('zilchcast', [
       templateUrl: 'app/views/test.html',
       controller: 'myVideoController'      
     })
+    .when("/video/:videoID/", {
+      templateUrl: "app/views/video.html",
+      controller: "myVideoController"
+    })
     .otherwise({
       redirectTo: '/'
     });

@@ -4,10 +4,15 @@
 
 angular.module('zilchcast.video', [])
 
-.controller('myVideoController', function($scope, $sce, GetVideo) {
+.controller('myVideoController', function($scope, $sce, GetVideo, $routeParams) {
   $scope.video = {
     url: null,
     html: null
+  }
+
+  var videoID = $routeParams.videoID;
+  if (videoID != undefined) {
+    alert('OH SHIT');
   }
 
   $scope.liked = function() {

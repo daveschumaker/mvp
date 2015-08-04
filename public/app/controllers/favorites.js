@@ -8,8 +8,7 @@ angular.module('zilchcast.popular', [])
   $scope.video = {}
 
   $scope.visitVideo = function(vidID) {
-    GetVideo.setVideo(vidID);
-    window.location = '/';
+    window.location = '#/video/' + vidID;
   }
 
   $scope.getPop = function() {
