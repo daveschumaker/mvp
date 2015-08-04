@@ -1,9 +1,14 @@
-<h4>PAWESOME CAT VIDEOS</h4>
+<h4>THE MOST PAWESOME CAT VIDEOS</h4>
 
 <div style="">
-  <div ng-repeat="vid in video" style="">
-    <img src="http://img.youtube.com/vi/{{ vid.vid_id }}/1.jpg">
-    <span class="vidtitle">{{ vid.title }}</span>
+  <div>
+    <table>
+      <tr height="100" ng-repeat="vid in video">
+        <td width="130" valign="middle"><img src="http://img.youtube.com/vi/{{ vid.vid_id }}/1.jpg"></td>
+        <td valign="middle"><span class="vidtitle">{{ vid.title }}</span></td>
+      </tr>
+    </table>
+    
     <p></p>
   </div>
 </div>

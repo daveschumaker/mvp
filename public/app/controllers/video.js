@@ -11,7 +11,6 @@ angular.module('zilchcast.video', [])
   }
 
   $scope.liked = function() {
-    alert('OH,SNAP! You LIKED this video!');
     GetVideo.vidAction('liked', $scope.video);
   }
 
