@@ -135,6 +135,12 @@ module.exports = {
     var video = allVids[Math.floor(Math.random()*allVids.length)];
     return video;  
   },
+  getOneVideo: function(data, res) {
+    sequelize.query("SELECT * FROM Videos WHERE vid_id='" + data.vid_id +"'", { type: sequelize.QueryTypes.SELECT})
+      .then(function(vid) {
+        res.send(vid[0]);
+      }) 
+  },
   getMostPopular: function() {
     return popVids;
   },

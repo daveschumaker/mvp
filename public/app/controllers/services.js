@@ -15,6 +15,18 @@ angular.module('video.services', [])
     });
   }
 
+  var getOneVideo = function(data) {
+    return $http({
+      method: 'POST',
+      url: '/api/video/get/',
+      data: data
+    })
+    .then(function (resp) {
+      console.log('Response Received!!!!', resp.data);
+      return resp.data;
+    });    
+  }
+
   var popularVids = function() {
     return $http({
       method: 'GET',
@@ -38,6 +50,7 @@ angular.module('video.services', [])
   }
 
   return {
+    getOneVideo: getOneVideo,
     newVideo: newVideo,
     popularVids: popularVids,
     vidAction: vidAction

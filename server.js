@@ -35,6 +35,12 @@ app.get('/api/video/popular', function(req,res) {
  res.send(newVids);
 });
 
+app.post('/api/video/get/', function(req, res) {
+  var myResponse = videos.getOneVideo(req.body, res);
+  //console.log('RESPONSE', myResponse);
+  //res.send(myResponse);
+})
+
 app.post('/api/video/liked', function(req, res) {
   res.statusCode = 201;
   videos.likeVideo(req.body);
