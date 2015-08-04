@@ -10,13 +10,24 @@ angular.module('zilchcast.video', [])
     html: null
   }
 
+  $scope.liked = function() {
+    alert('OH,SNAP! You LIKED this video!');
+    GetVideo.vidAction('liked', $scope.video);
+  }
+
+  $scope.disliked = function() {
+    alert('Ahh, boo! That video sucked!');
+    GetVideo.vidAction('disliked', $scope.video);
+  }  
+
   $scope.getVideo = function() {
     GetVideo.newVideo()
       .then(function(video) {
-        $scope.video.url = video.url;
+        $scope.video = video;
+        //$scope.video.url = video.url;
         $scope.video.html = '<iframe width="560" height="315" src="' + $scope.video.url + '" frameborder="0" allowfullscreen></iframe>';
-        $scope.video.html = $sce.trustAsHtml($scope.video.html);
-        console.log('HELLO?', $scope.video.url);
+        $scope.displayHTML = $sce.trustAsHtml($scope.video.html);
+        console.log($scope.video);
       })
   }
 

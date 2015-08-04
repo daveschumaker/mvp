@@ -16,7 +16,23 @@ angular.module('video.services', [])
     });
   }
 
+  var vidAction = function(action, data) {
+    // action == either "like" or "dislike"
+
+    return $http({
+      method: 'POST',
+      url: '/api/video/' + action,
+      data: data
+    })
+    .then(function (resp) {
+      console.log(resp.data);
+      return resp.data;
+    });
+  }
+
+
   return {
-    newVideo: newVideo
+    newVideo: newVideo,
+    vidAction: vidAction
   }
 });

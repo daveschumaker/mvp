@@ -1,9 +1,9 @@
 <div id="videoplayer" style="text-align: center">
 
-  <p ng-bind-html="video.html"></p>
+  <p ng-bind-html="displayHTML"></p>
 
   <p>
-    <a href="#/like"><i class="fa fa-thumbs-up fa-4x"></i></a>
-    <a href="#/dislike"><i class="fa fa-thumbs-down fa-4x" style="position: relative;top: 13px;"></i></a>
+    <a href="#/liked" ng-click="liked()"><i class="fa fa-thumbs-up fa-4x"></i></a>
+    <a href="#/dislike" ng-click="disliked()"><i class="fa fa-thumbs-down fa-4x" style="position: relative;top: 13px;"></i></a>
   </p>
 </div>
