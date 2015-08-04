@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/daveschumaker/2015-06-mvp#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "request": "^2.60.0"
   }
 }
