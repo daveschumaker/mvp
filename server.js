@@ -53,9 +53,9 @@ var searchCriteria = [
 // videos.updateVideos(); // Fetch videos on server load.
 setInterval(function() {
   var searchQry = searchCriteria[Math.floor(Math.random()*searchCriteria.length)];
-  console.log('Now searching for... ' + searchQry);
-  videos.updateVideos(searchQry);
-}, 5000);
+  //console.log('Now searching for... ' + searchQry);
+  //videos.updateVideos(searchQry);
+}, 120000);
 
 // Setup server and start listening.
 var port = 3002;

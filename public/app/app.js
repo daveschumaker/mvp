@@ -14,6 +14,14 @@ angular.module('zilchcast', [
       templateUrl: 'app/views/video.html',
       controller: 'myVideoController'
     })
+    .when('/popular', {
+      templateUrl: 'app/views/popular.html',
+      controller: 'myVideoController'
+    })
+    .when('/recent', {
+      templateUrl: 'app/views/recent.html',
+      controller: 'myVideoController'
+    })
     .when('/test', {
       templateUrl: 'app/views/test.html',
       controller: 'myVideoController'      

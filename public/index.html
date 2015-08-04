@@ -1,20 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>ZilchCast</title>
+  <meta name="description" content="">
+  <meta name="author" content="Dave Schumaker">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="lib/angular/angular.min.js"></script>
   <script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
 </head>
 <body ng-app="zilchcast">
-  <h1>Hello, ZilchCast!</h1>
-  <div ng-view></div>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="navbar-spacer"></div>
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="#recent">Recently Discovered</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#popular">Popular</a> 
+          <li class="navbar-title"><a href="#/"><h4><strong>ZILCHcast</strong></h4></a></li>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="twelve columns" style="margin-top: 25px; width: 100%;">
+        <div ng-view></div>
+      </div>
+    </div>
   
-  <!-- page content -->
+    <footer>
+    <p>Discover tomorrow's videos today.</p>
+    </footer>
+  </div>
+
   <script type="text/javascript" src="app/controllers/video.js"></script>
   <script type="text/javascript" src="app/controllers/services.js"></script>
-  <script type="text/javascript" src="app/app.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>  
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>

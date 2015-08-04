@@ -16,7 +16,7 @@ var apiKey = api.apiKey();
 // Send a GET request to YouTUbe with a query search string
 var fetchVids = function(searchQry) {
   var searchQry = searchQry || "corgis"
-  var requestVideosURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=" + apiKey + "&q=" + searchQry + "&order=date&maxResults=50&publishedAfter=2015-07-01T00%3A00%3A00Z";
+  var requestVideosURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=" + apiKey + "&q=" + searchQry + "&order=date&maxResults=10&publishedAfter=2015-07-01T00%3A00%3A00Z";
   request(requestVideosURL, function(error, response, body) {
     if (body === undefined) { console.log('Undefined body!'); body = ''; };
     var data = JSON.parse(body);
