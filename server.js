@@ -1,5 +1,5 @@
 /**
- * ZilchCast v.0.0.1
+ * ZilchCast v.0.0.2
  * by Dave Schumaker
  *
  * MVP Project for Hack Reactor, cohort 31
@@ -21,23 +21,41 @@ app.use(express.static(__dirname + '/public'));
 // Handle API requests
 app.get('/api/video/new', function(req,res) {
  res.statusCode = 200;
- var newVideo = videos.new();
+ var newVideo = videos.newVid();
  console.log('New video requested: ', newVideo); 
  res.send(newVideo);
 });
 
+var searchCriteria = [
+  'baseball',
+  'basketball',
+  'boring',
+  'cats',
+  'coding',
+  'corgis',
+  'dogs',
+  'driving',
+  'eating',
+  'fail',
+  'family',
+  'food',
+  'funny',
+  'karate',
+  'nature',
+  'random',
+  'school',
+  'sharks',
+  'twitter',
+  'work'
+]
+
 // Periodically update list of videos.
-videos.updateVideos(); // Fetch videos on server load.
+// videos.updateVideos(); // Fetch videos on server load.
 setInterval(function() {
-  videos.updateVideos();
-}, 120000);
-
-// Figure out route handling later.
-// app.get('/', function(req,res) {
-//   console.log('BOOM!!!');w
-//   res.end();
-// });
-
+  var searchQry = searchCriteria[Math.floor(Math.random()*searchCriteria.length)];
+  console.log('Now searching for... ' + searchQry);
+  videos.updateVideos(searchQry);
+}, 5000);
 
 // Setup server and start listening.
 var port = 3002;
