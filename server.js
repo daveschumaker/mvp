@@ -26,6 +26,12 @@ app.get('/api/video/new', function(req,res) {
  res.send(newVideo);
 });
 
+// Periodically update list of videos.
+videos.updateVideos(); // Fetch videos on server load.
+setInterval(function() {
+  videos.updateVideos();
+}, 120000);
+
 // Figure out route handling later.
 // app.get('/', function(req,res) {
 //   console.log('BOOM!!!');w
