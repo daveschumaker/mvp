@@ -16,9 +16,19 @@ angular.module('video.services', [])
     });
   }
 
+  var popularVids = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/video/popular'
+    })
+    .then(function (resp) {
+      console.log(resp.data);
+      return resp.data;
+    });
+  }
+
   var vidAction = function(action, data) {
     // action == either "like" or "dislike"
-
     return $http({
       method: 'POST',
       url: '/api/video/' + action,
@@ -31,8 +41,10 @@ angular.module('video.services', [])
   }
 
 
+
   return {
     newVideo: newVideo,
+    popularVids: popularVids,
     vidAction: vidAction
   }
 });

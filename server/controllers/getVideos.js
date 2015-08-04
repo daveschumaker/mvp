@@ -4,15 +4,66 @@
  */
 
 var request = require("request");
-var Firebase = require("firebase");
+var Sequelize = require('sequelize');
+
+var sequelize = new Sequelize('videos', 'username', 'password', {
+  host: 'localhost',
+  dialect: 'sqlite',
+
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
+
+  // SQLite only
+  storage: 'server/db/video.sqlite'
+});
+
+var Video = sequelize.define('Video', {
+  vid_id: Sequelize.STRING,
+  title: Sequelize.STRING,
+  url: Sequelize.STRING,
+  html: Sequelize.STRING,
+  views: Sequelize.INTEGER,
+  likes: Sequelize.INTEGER,
+  dislikes: Sequelize.INTEGER
+});
+
+sequelize.sync();
+
+
 var sanitizeHtml = require('sanitize-html');
 var api = require('../api-config.js');
 
-var myFirebaseRef = new Firebase("https://blistering-torch-3329.firebaseio.com/");
-var dbVideos = myFirebaseRef.child("videos");
-
 // Import our YouTube API key
 var apiKey = api.apiKey();
+
+var getPopular = function() {
+
+}
+
+getPopular();
+
+// Check if video exists in our data. If not, save it.
+var likeVid = function(data) {
+  var likeCount = 0;
+  Video.findOne({where: {vid_id: data.vid_id} }).then(function(vid) {
+    likeCount = vid.dataValues.likes;
+    likeCount++;
+    Video.update({likes: likeCount}, {where: {vid_id: vid.dataValues.vid_id}}); // Add like count to this video.
+  });
+}
+
+// Check if video exists in our data. If not, save it.
+var hateVid = function(data) {
+  var dislikeCount = 0;
+  Video.findOne({where: {vid_id: data.vid_id} }).then(function(vid) {
+    dislikeCount = vid.dataValues.dislikes;
+    dislikeCount++;
+    Video.update({dislikes: dislikeCount}, {where: {vid_id: vid.dataValues.vid_id}}); // Add like count to this video.
+  });
+}
 
 // Send a GET request to YouTUbe with a query search string
 var fetchVids = function(searchQry) {
@@ -23,48 +74,59 @@ var fetchVids = function(searchQry) {
     var data = JSON.parse(body);
     data.items.forEach(function(item, index) {
 
-      // console.log(item);
-
       // Now send a SECOND API request to YouTube that gets the statistics on this PARTICULAR video.
       var videoID = item.id.videoId;
       var requestURL = "https://www.googleapis.com/youtube/v3/videos?part=statistics&key=" + apiKey + "&id=" + videoID;
 
       var embedID = 'https://www.youtube.com/embed/' + videoID;
 
-      // Write data to Firebase.
-      dbVideos.child(videoID).update({
-        id: videoID,
-        //title: sanitizeHtml(item.snippet.title) || '',
-        url: embedID,
-        // views: 0,
-        // likes: 0
-      });
+      if (videoID != undefined || videoID != null) {
+        // Check if video already exists in our database.
+        Video.findOne({ where: {vid_id: videoID} }).then(function(vid) {
+          if (vid === null) {
+            Video.sync().then(function () {
+              // Table created
+              return Video.create({
+                vid_id: videoID,
+                title: item.snippet.title,
+                url: embedID,
+                views: 0,
+                likes: 0,
+                dislikes: 0
+              });
+            });          
+          }
+        })
+      }
     });
   });
 };
 
 var allVids = [];
 var getAllVids = function() {
-  // GET DATA BACK FROM SERVER!
+  // GET DATA BACK FROM DATABASE!
   var allData = [];
-  dbVideos.on("value", function(snapshot) {
-    for (var key in snapshot.val()) {
-      // console.log(snapshot.val()[key]);
-      allData.push(snapshot.val()[key]);
-    }
-    // console.log(allData);
-    allVids = allData;
-    return allData;
-  }, function (errorObject) {
-    console.log("The read failed: " + errorObject.code);
-  });
+  sequelize.query("SELECT * FROM 'Videos' WHERE dislikes < 2", { type: sequelize.QueryTypes.SELECT})
+    .then(function(vid) {
+      allVids = vid;
+    })
 };
 
+// Popular videos
+var popVids = [];
+var getPopVids = function() {
+  sequelize.query("SELECT * FROM Videos ORDER BY likes DESC LIMIT 10", { type: sequelize.QueryTypes.SELECT})
+    .then(function(vid) {
+      popVids = vid;
+    })  
+}
+
 getAllVids();
+getPopVids();
 // This is a hacky way to get around asynchronous stuff...
 setInterval(function(){
-  // console.log('Fetching video content...');
-  getAllVids();  
+  getAllVids(); 
+  getPopVids(); 
 }, 5000);
 
 module.exports = {
@@ -73,8 +135,17 @@ module.exports = {
     var video = allVids[Math.floor(Math.random()*allVids.length)];
     return video;  
   },
+  getMostPopular: function() {
+    return popVids;
+  },
   newVid: function() {
     return this.getRandom();
+  },
+  likeVideo: function(data) {
+    likeVid(data);
+  },
+  dislikeVideo: function(data) {
+    hateVid(data);
   },
   updateVideos: function(searchQry) {
     // console.log('Fetching new videos!');

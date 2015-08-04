@@ -2,6 +2,7 @@
 api-config.js
 node_modules/
 public/lib/
+server/db/video.sqlite
 
 # Logs
 logs

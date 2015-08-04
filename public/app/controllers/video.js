@@ -16,7 +16,6 @@ angular.module('zilchcast.video', [])
   }
 
   $scope.disliked = function() {
-    alert('Ahh, boo! That video sucked!');
     GetVideo.vidAction('disliked', $scope.video);
   }  
 

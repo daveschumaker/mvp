@@ -46,6 +46,11 @@ footer {
   text-align: center;
 }
 
+.vidtitle {
+  vertical-align: middle;
+  font-size: 1.5em;
+}
+
 /* For devices larger than 400px */
 @media (min-width: 400px) {
   .container {

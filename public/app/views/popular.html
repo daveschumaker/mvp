@@ -1,1 +1,9 @@
-<h4>POPULAR VIDEOS!</h4>
+<h4>PAWESOME CAT VIDEOS</h4>
+
+<div style="">
+  <div ng-repeat="vid in video" style="">
+    <img src="http://img.youtube.com/vi/{{ vid.vid_id }}/1.jpg">
+    <span class="vidtitle">{{ vid.title }}</span>
+    <p></p>
+  </div>
+</div>

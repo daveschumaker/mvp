@@ -29,38 +29,23 @@ app.get('/api/video/new', function(req,res) {
  res.send(newVideo);
 });
 
+app.get('/api/video/popular', function(req,res) {
+ res.statusCode = 200;
+ var newVids = videos.getMostPopular();
+ res.send(newVids);
+});
+
 app.post('/api/video/liked', function(req, res) {
+  videos.likeVideo(req.body);
   console.log(req.body);
   console.log('Liked video!');
 });
 
 app.post('/api/video/disliked', function(req, res) {
+  videos.dislikeVideo(req.body);
   console.log(req.body);
   console.log('Disliked video!');
 });
-
-var searchCriteria = [
-  'baseball',
-  'basketball',
-  'boring',
-  'cats',
-  'coding',
-  'corgis',
-  'dogs',
-  'driving',
-  'eating',
-  'fail',
-  'family',
-  'food',
-  'funny',
-  'karate',
-  'nature',
-  'random',
-  'school',
-  'sharks',
-  'twitter',
-  'work'
-]
 
 videos.updateVideos('cats%20OR%20cat%20OR%20kittens');
 // Periodically update list of videos.
@@ -69,7 +54,7 @@ setInterval(function() {
   //var searchQry = searchCriteria[Math.floor(Math.random()*searchCriteria.length)];
   //console.log('Now searching for... ' + searchQry);
   videos.updateVideos('cats%20OR%20cat%20OR%20kittens');
-}, 120000);
+}, 60000);
 
 // Setup server and start listening.
 var port = 3002;
