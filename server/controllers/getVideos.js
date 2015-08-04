@@ -127,7 +127,7 @@ getPopVids();
 setInterval(function(){
   getAllVids(); 
   getPopVids(); 
-}, 5000);
+}, 30000);
 
 module.exports = {
   getRandom: function() {

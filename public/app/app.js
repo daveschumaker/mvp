@@ -9,7 +9,7 @@ angular.module('zilchcast', [
   'ngRoute'
 ])
 
-.config(function($routeProvider, $httpProvider) {
+.config(function($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'app/views/video.html',

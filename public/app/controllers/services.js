@@ -11,7 +11,6 @@ angular.module('video.services', [])
       url: '/api/video/new'
     })
     .then(function (resp) {
-      console.log(resp.data);
       return resp.data;
     });
   }
@@ -22,7 +21,6 @@ angular.module('video.services', [])
       url: '/api/video/popular'
     })
     .then(function (resp) {
-      console.log(resp.data);
       return resp.data;
     });
   }
@@ -35,12 +33,9 @@ angular.module('video.services', [])
       data: data
     })
     .then(function (resp) {
-      console.log(resp.data);
       return resp.data;
     });
   }
-
-
 
   return {
     newVideo: newVideo,

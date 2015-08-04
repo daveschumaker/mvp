@@ -7,6 +7,11 @@ angular.module('zilchcast.popular', [])
 .controller('popularController', function($scope, $sce, GetVideo) {
   $scope.video = {}
 
+  $scope.visitVideo = function(vidID) {
+    GetVideo.setVideo(vidID);
+    window.location = '/';
+  }
+
   $scope.getPop = function() {
     GetVideo.popularVids()
       .then(function(video) {

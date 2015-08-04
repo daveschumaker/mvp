@@ -36,15 +36,21 @@ app.get('/api/video/popular', function(req,res) {
 });
 
 app.post('/api/video/liked', function(req, res) {
+  res.statusCode = 201;
   videos.likeVideo(req.body);
   console.log(req.body);
   console.log('Liked video!');
+  var newVideo = videos.newVid();
+  res.send(newVideo);
 });
 
 app.post('/api/video/disliked', function(req, res) {
+  res.statusCode = 201;
   videos.dislikeVideo(req.body);
   console.log(req.body);
   console.log('Disliked video!');
+  var newVideo = videos.newVid();
+  res.send(newVideo);
 });
 
 videos.updateVideos('cats%20OR%20cat%20OR%20kittens');

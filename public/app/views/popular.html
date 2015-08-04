@@ -4,8 +4,8 @@
   <div>
     <table>
       <tr height="100" ng-repeat="vid in video">
-        <td width="130" valign="middle"><img src="http://img.youtube.com/vi/{{ vid.vid_id }}/1.jpg"></td>
-        <td valign="middle"><span class="vidtitle">{{ vid.title }}</span></td>
+        <td width="130" valign="middle" ng-click="visitVideo(vid.vid_id)"><img src="http://img.youtube.com/vi/{{ vid.vid_id }}/1.jpg"></td>
+        <td valign="middle" ng-click="visitVideo(vid.vid_id)"><span class="vidtitle">{{ vid.title }}</span></td>
       </tr>
     </table>
     
