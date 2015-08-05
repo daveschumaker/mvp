@@ -22,7 +22,6 @@ angular.module('zilchcast.video', [])
         //$scope.video.url = video.url;
         $scope.video.html = '<iframe width="560" height="315" src="' + $scope.video.url + '" frameborder="0" allowfullscreen></iframe>';
         $scope.displayHTML = $sce.trustAsHtml($scope.video.html);
-        console.log($scope.video);
       })
   }
 

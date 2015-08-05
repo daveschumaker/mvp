@@ -35,6 +35,12 @@ app.get('/api/video/popular', function(req,res) {
  res.send(newVids);
 });
 
+app.get('/api/video/recent', function(req,res) {
+ res.statusCode = 200;
+ var newVids = videos.getRecent(res);
+ //res.send(newVids);
+});
+
 app.post('/api/video/get/', function(req, res) {
   var myResponse = videos.getOneVideo(req.body, res);
   //console.log('RESPONSE', myResponse);
@@ -60,6 +66,8 @@ app.post('/api/video/disliked', function(req, res) {
 });
 
 videos.updateVideos('cats%20OR%20cat%20OR%20kittens');
+// videos.updateVideos('tigers');
+
 // Periodically update list of videos.
 // videos.updateVideos(); // Fetch videos on server load.
 setInterval(function() {

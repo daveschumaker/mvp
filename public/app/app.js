@@ -4,6 +4,7 @@
 
 angular.module('zilchcast', [
   'zilchcast.popular',
+  'zilchcast.recent',
   'zilchcast.video',
   'video.services',
   'ngRoute'
@@ -21,7 +22,7 @@ angular.module('zilchcast', [
     })
     .when('/recent', {
       templateUrl: 'app/views/recent.html',
-      controller: 'myVideoController'
+      controller: 'recentController'
     })
     .when('/test', {
       templateUrl: 'app/views/test.html',

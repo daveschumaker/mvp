@@ -37,6 +37,17 @@ angular.module('video.services', [])
     });
   }
 
+  var recentVids = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/video/recent'
+    })
+    .then(function (resp) {
+      console.log(resp);
+      return resp.data;
+    });
+  }
+
   var vidAction = function(action, data) {
     // action == either "like" or "dislike"
     return $http({
@@ -53,6 +64,7 @@ angular.module('video.services', [])
     getOneVideo: getOneVideo,
     newVideo: newVideo,
     popularVids: popularVids,
+    recentVids: recentVids,
     vidAction: vidAction
   }
 });

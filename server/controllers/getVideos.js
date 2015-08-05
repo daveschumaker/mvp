@@ -144,6 +144,12 @@ module.exports = {
   getMostPopular: function() {
     return popVids;
   },
+  getRecent: function(res) {
+  sequelize.query("SELECT * FROM Videos ORDER BY createdAt DESC LIMIT 20", { type: sequelize.QueryTypes.SELECT})
+    .then(function(vid) {
+      res.send(vid);
+    })  
+  },
   newVid: function() {
     return this.getRandom();
   },
